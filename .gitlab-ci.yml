@@ -1,0 +1,21 @@
+image: python:3.8-slim
+
+stages:
+  - test
+  - sonar
+
+test:
+  stage: test
+  script:
+    - pip install -r requirements.txt
+    - python -m unittest discover -s tests
+
+sonar:
+  stage: sonar
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  script:
+    - sonar-scanner
+  only:
+    - master
