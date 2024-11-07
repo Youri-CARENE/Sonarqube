@@ -9,3 +9,12 @@ Voici des exemples pour illustrer les différences entre un code de bonne et de 
       result = operation()
   except SpecificException as e:
       handle_error(e)
+ ```
+
+- **Mauvais Code** :
+```python
+try:
+    result = operation()
+except Exception:
+    pass  # Mauvaise pratique, car les erreurs ne sont pas gérées correctement
+```
